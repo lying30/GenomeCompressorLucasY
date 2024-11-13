@@ -27,6 +27,24 @@ public class GenomeCompressor {
 
         // TODO: complete the compress() method
 
+        String s = BinaryStdIn.readString();
+        int n = s.length();
+
+        for (int i = 0; i < n; i++) {
+            if (s.substring(i) == "A"){
+                BinaryStdOut.write(0, 2);
+            }
+            else if (s.substring(i) == "C") {
+                BinaryStdOut.write(1, 2);
+            }
+            else if (s.substring(i) == "T") {
+                BinaryStdOut.write(2, 2);
+            }
+            else if (s.substring(i) == "G") {
+                BinaryStdOut.write(3, 2);
+            }
+        }
+
         BinaryStdOut.close();
     }
 
@@ -36,7 +54,24 @@ public class GenomeCompressor {
     public static void expand() {
 
         // TODO: complete the expand() method
-
+        while (!BinaryStdIn.isEmpty()) {
+            char c = BinaryStdIn.readChar(2);
+            if (c == 0) {
+                BinaryStdOut.write("A");
+            }
+            else if (c == 1) {
+                BinaryStdOut.write("C");
+            }
+            else if (c == 2) {
+                BinaryStdOut.write("T");
+            }
+            else if (c == 3) {
+                BinaryStdOut.write("G");
+            }
+            else {
+                BinaryStdOut.write(c);
+            }
+        }
         BinaryStdOut.close();
     }
 
